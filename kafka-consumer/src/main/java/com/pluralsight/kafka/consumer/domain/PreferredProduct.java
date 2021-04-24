@@ -1,4 +1,4 @@
-package com.pluralsight.kafka.consumer.model;
+package com.pluralsight.kafka.consumer.domain;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
