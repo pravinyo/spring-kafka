@@ -3,7 +3,7 @@
  *
  * DO NOT EDIT DIRECTLY
  */
-package com.pluralsight.kafka.consumer.model;
+package com.example.kafka.model;
 
 import org.apache.avro.generic.GenericArray;
 import org.apache.avro.specific.SpecificData;
@@ -71,9 +71,9 @@ public class Product extends org.apache.avro.specific.SpecificRecordBase impleme
     return DECODER.decode(b);
   }
 
-   private com.pluralsight.kafka.consumer.model.Color Color;
-   private com.pluralsight.kafka.consumer.model.ProductType ProductType;
-   private com.pluralsight.kafka.consumer.model.DesignType DesignType;
+   private com.example.kafka.model.Color Color;
+   private com.example.kafka.model.ProductType ProductType;
+   private com.example.kafka.model.DesignType DesignType;
 
   /**
    * Default constructor.  Note that this does not initialize fields
@@ -88,16 +88,16 @@ public class Product extends org.apache.avro.specific.SpecificRecordBase impleme
    * @param ProductType The new value for ProductType
    * @param DesignType The new value for DesignType
    */
-  public Product(com.pluralsight.kafka.consumer.model.Color Color, com.pluralsight.kafka.consumer.model.ProductType ProductType, com.pluralsight.kafka.consumer.model.DesignType DesignType) {
+  public Product(com.example.kafka.model.Color Color, com.example.kafka.model.ProductType ProductType, com.example.kafka.model.DesignType DesignType) {
     this.Color = Color;
     this.ProductType = ProductType;
     this.DesignType = DesignType;
   }
 
-  public SpecificData getSpecificData() { return MODEL$; }
+  public org.apache.avro.specific.SpecificData getSpecificData() { return MODEL$; }
   public org.apache.avro.Schema getSchema() { return SCHEMA$; }
   // Used by DatumWriter.  Applications should not call.
-  public Object get(int field$) {
+  public java.lang.Object get(int field$) {
     switch (field$) {
     case 0: return Color;
     case 1: return ProductType;
@@ -108,11 +108,11 @@ public class Product extends org.apache.avro.specific.SpecificRecordBase impleme
 
   // Used by DatumReader.  Applications should not call.
   @SuppressWarnings(value="unchecked")
-  public void put(int field$, Object value$) {
+  public void put(int field$, java.lang.Object value$) {
     switch (field$) {
-    case 0: Color = (com.pluralsight.kafka.consumer.model.Color)value$; break;
-    case 1: ProductType = (com.pluralsight.kafka.consumer.model.ProductType)value$; break;
-    case 2: DesignType = (com.pluralsight.kafka.consumer.model.DesignType)value$; break;
+    case 0: Color = (com.example.kafka.model.Color)value$; break;
+    case 1: ProductType = (com.example.kafka.model.ProductType)value$; break;
+    case 2: DesignType = (com.example.kafka.model.DesignType)value$; break;
     default: throw new IndexOutOfBoundsException("Invalid index: " + field$);
     }
   }
@@ -121,7 +121,7 @@ public class Product extends org.apache.avro.specific.SpecificRecordBase impleme
    * Gets the value of the 'Color' field.
    * @return The value of the 'Color' field.
    */
-  public com.pluralsight.kafka.consumer.model.Color getColor() {
+  public com.example.kafka.model.Color getColor() {
     return Color;
   }
 
@@ -130,7 +130,7 @@ public class Product extends org.apache.avro.specific.SpecificRecordBase impleme
    * Sets the value of the 'Color' field.
    * @param value the value to set.
    */
-  public void setColor(com.pluralsight.kafka.consumer.model.Color value) {
+  public void setColor(com.example.kafka.model.Color value) {
     this.Color = value;
   }
 
@@ -138,7 +138,7 @@ public class Product extends org.apache.avro.specific.SpecificRecordBase impleme
    * Gets the value of the 'ProductType' field.
    * @return The value of the 'ProductType' field.
    */
-  public com.pluralsight.kafka.consumer.model.ProductType getProductType() {
+  public com.example.kafka.model.ProductType getProductType() {
     return ProductType;
   }
 
@@ -147,7 +147,7 @@ public class Product extends org.apache.avro.specific.SpecificRecordBase impleme
    * Sets the value of the 'ProductType' field.
    * @param value the value to set.
    */
-  public void setProductType(com.pluralsight.kafka.consumer.model.ProductType value) {
+  public void setProductType(com.example.kafka.model.ProductType value) {
     this.ProductType = value;
   }
 
@@ -155,7 +155,7 @@ public class Product extends org.apache.avro.specific.SpecificRecordBase impleme
    * Gets the value of the 'DesignType' field.
    * @return The value of the 'DesignType' field.
    */
-  public com.pluralsight.kafka.consumer.model.DesignType getDesignType() {
+  public com.example.kafka.model.DesignType getDesignType() {
     return DesignType;
   }
 
@@ -164,7 +164,7 @@ public class Product extends org.apache.avro.specific.SpecificRecordBase impleme
    * Sets the value of the 'DesignType' field.
    * @param value the value to set.
    */
-  public void setDesignType(com.pluralsight.kafka.consumer.model.DesignType value) {
+  public void setDesignType(com.example.kafka.model.DesignType value) {
     this.DesignType = value;
   }
 
@@ -172,8 +172,8 @@ public class Product extends org.apache.avro.specific.SpecificRecordBase impleme
    * Creates a new Product RecordBuilder.
    * @return A new Product RecordBuilder
    */
-  public static com.pluralsight.kafka.consumer.model.Product.Builder newBuilder() {
-    return new com.pluralsight.kafka.consumer.model.Product.Builder();
+  public static com.example.kafka.model.Product.Builder newBuilder() {
+    return new com.example.kafka.model.Product.Builder();
   }
 
   /**
@@ -181,11 +181,11 @@ public class Product extends org.apache.avro.specific.SpecificRecordBase impleme
    * @param other The existing builder to copy.
    * @return A new Product RecordBuilder
    */
-  public static com.pluralsight.kafka.consumer.model.Product.Builder newBuilder(com.pluralsight.kafka.consumer.model.Product.Builder other) {
+  public static com.example.kafka.model.Product.Builder newBuilder(com.example.kafka.model.Product.Builder other) {
     if (other == null) {
-      return new com.pluralsight.kafka.consumer.model.Product.Builder();
+      return new com.example.kafka.model.Product.Builder();
     } else {
-      return new com.pluralsight.kafka.consumer.model.Product.Builder(other);
+      return new com.example.kafka.model.Product.Builder(other);
     }
   }
 
@@ -194,11 +194,11 @@ public class Product extends org.apache.avro.specific.SpecificRecordBase impleme
    * @param other The existing instance to copy.
    * @return A new Product RecordBuilder
    */
-  public static com.pluralsight.kafka.consumer.model.Product.Builder newBuilder(com.pluralsight.kafka.consumer.model.Product other) {
+  public static com.example.kafka.model.Product.Builder newBuilder(com.example.kafka.model.Product other) {
     if (other == null) {
-      return new com.pluralsight.kafka.consumer.model.Product.Builder();
+      return new com.example.kafka.model.Product.Builder();
     } else {
-      return new com.pluralsight.kafka.consumer.model.Product.Builder(other);
+      return new com.example.kafka.model.Product.Builder(other);
     }
   }
 
@@ -209,9 +209,9 @@ public class Product extends org.apache.avro.specific.SpecificRecordBase impleme
   public static class Builder extends org.apache.avro.specific.SpecificRecordBuilderBase<Product>
     implements org.apache.avro.data.RecordBuilder<Product> {
 
-    private com.pluralsight.kafka.consumer.model.Color Color;
-    private com.pluralsight.kafka.consumer.model.ProductType ProductType;
-    private com.pluralsight.kafka.consumer.model.DesignType DesignType;
+    private com.example.kafka.model.Color Color;
+    private com.example.kafka.model.ProductType ProductType;
+    private com.example.kafka.model.DesignType DesignType;
 
     /** Creates a new Builder */
     private Builder() {
@@ -222,7 +222,7 @@ public class Product extends org.apache.avro.specific.SpecificRecordBase impleme
      * Creates a Builder by copying an existing Builder.
      * @param other The existing Builder to copy.
      */
-    private Builder(com.pluralsight.kafka.consumer.model.Product.Builder other) {
+    private Builder(com.example.kafka.model.Product.Builder other) {
       super(other);
       if (isValidValue(fields()[0], other.Color)) {
         this.Color = data().deepCopy(fields()[0].schema(), other.Color);
@@ -242,7 +242,7 @@ public class Product extends org.apache.avro.specific.SpecificRecordBase impleme
      * Creates a Builder by copying an existing Product instance
      * @param other The existing instance to copy.
      */
-    private Builder(com.pluralsight.kafka.consumer.model.Product other) {
+    private Builder(com.example.kafka.model.Product other) {
       super(SCHEMA$);
       if (isValidValue(fields()[0], other.Color)) {
         this.Color = data().deepCopy(fields()[0].schema(), other.Color);
@@ -262,7 +262,7 @@ public class Product extends org.apache.avro.specific.SpecificRecordBase impleme
       * Gets the value of the 'Color' field.
       * @return The value.
       */
-    public com.pluralsight.kafka.consumer.model.Color getColor() {
+    public com.example.kafka.model.Color getColor() {
       return Color;
     }
 
@@ -272,7 +272,7 @@ public class Product extends org.apache.avro.specific.SpecificRecordBase impleme
       * @param value The value of 'Color'.
       * @return This builder.
       */
-    public com.pluralsight.kafka.consumer.model.Product.Builder setColor(com.pluralsight.kafka.consumer.model.Color value) {
+    public com.example.kafka.model.Product.Builder setColor(com.example.kafka.model.Color value) {
       validate(fields()[0], value);
       this.Color = value;
       fieldSetFlags()[0] = true;
@@ -292,7 +292,7 @@ public class Product extends org.apache.avro.specific.SpecificRecordBase impleme
       * Clears the value of the 'Color' field.
       * @return This builder.
       */
-    public com.pluralsight.kafka.consumer.model.Product.Builder clearColor() {
+    public com.example.kafka.model.Product.Builder clearColor() {
       Color = null;
       fieldSetFlags()[0] = false;
       return this;
@@ -302,7 +302,7 @@ public class Product extends org.apache.avro.specific.SpecificRecordBase impleme
       * Gets the value of the 'ProductType' field.
       * @return The value.
       */
-    public com.pluralsight.kafka.consumer.model.ProductType getProductType() {
+    public com.example.kafka.model.ProductType getProductType() {
       return ProductType;
     }
 
@@ -312,7 +312,7 @@ public class Product extends org.apache.avro.specific.SpecificRecordBase impleme
       * @param value The value of 'ProductType'.
       * @return This builder.
       */
-    public com.pluralsight.kafka.consumer.model.Product.Builder setProductType(com.pluralsight.kafka.consumer.model.ProductType value) {
+    public com.example.kafka.model.Product.Builder setProductType(com.example.kafka.model.ProductType value) {
       validate(fields()[1], value);
       this.ProductType = value;
       fieldSetFlags()[1] = true;
@@ -332,7 +332,7 @@ public class Product extends org.apache.avro.specific.SpecificRecordBase impleme
       * Clears the value of the 'ProductType' field.
       * @return This builder.
       */
-    public com.pluralsight.kafka.consumer.model.Product.Builder clearProductType() {
+    public com.example.kafka.model.Product.Builder clearProductType() {
       ProductType = null;
       fieldSetFlags()[1] = false;
       return this;
@@ -342,7 +342,7 @@ public class Product extends org.apache.avro.specific.SpecificRecordBase impleme
       * Gets the value of the 'DesignType' field.
       * @return The value.
       */
-    public com.pluralsight.kafka.consumer.model.DesignType getDesignType() {
+    public com.example.kafka.model.DesignType getDesignType() {
       return DesignType;
     }
 
@@ -352,7 +352,7 @@ public class Product extends org.apache.avro.specific.SpecificRecordBase impleme
       * @param value The value of 'DesignType'.
       * @return This builder.
       */
-    public com.pluralsight.kafka.consumer.model.Product.Builder setDesignType(com.pluralsight.kafka.consumer.model.DesignType value) {
+    public com.example.kafka.model.Product.Builder setDesignType(com.example.kafka.model.DesignType value) {
       validate(fields()[2], value);
       this.DesignType = value;
       fieldSetFlags()[2] = true;
@@ -372,7 +372,7 @@ public class Product extends org.apache.avro.specific.SpecificRecordBase impleme
       * Clears the value of the 'DesignType' field.
       * @return This builder.
       */
-    public com.pluralsight.kafka.consumer.model.Product.Builder clearDesignType() {
+    public com.example.kafka.model.Product.Builder clearDesignType() {
       DesignType = null;
       fieldSetFlags()[2] = false;
       return this;
@@ -383,13 +383,13 @@ public class Product extends org.apache.avro.specific.SpecificRecordBase impleme
     public Product build() {
       try {
         Product record = new Product();
-        record.Color = fieldSetFlags()[0] ? this.Color : (com.pluralsight.kafka.consumer.model.Color) defaultValue(fields()[0]);
-        record.ProductType = fieldSetFlags()[1] ? this.ProductType : (com.pluralsight.kafka.consumer.model.ProductType) defaultValue(fields()[1]);
-        record.DesignType = fieldSetFlags()[2] ? this.DesignType : (com.pluralsight.kafka.consumer.model.DesignType) defaultValue(fields()[2]);
+        record.Color = fieldSetFlags()[0] ? this.Color : (com.example.kafka.model.Color) defaultValue(fields()[0]);
+        record.ProductType = fieldSetFlags()[1] ? this.ProductType : (com.example.kafka.model.ProductType) defaultValue(fields()[1]);
+        record.DesignType = fieldSetFlags()[2] ? this.DesignType : (com.example.kafka.model.DesignType) defaultValue(fields()[2]);
         return record;
       } catch (org.apache.avro.AvroMissingFieldException e) {
         throw e;
-      } catch (Exception e) {
+      } catch (java.lang.Exception e) {
         throw new org.apache.avro.AvroRuntimeException(e);
       }
     }
@@ -431,25 +431,25 @@ public class Product extends org.apache.avro.specific.SpecificRecordBase impleme
   {
     org.apache.avro.Schema.Field[] fieldOrder = in.readFieldOrderIfDiff();
     if (fieldOrder == null) {
-      this.Color = com.pluralsight.kafka.consumer.model.Color.values()[in.readEnum()];
+      this.Color = com.example.kafka.model.Color.values()[in.readEnum()];
 
-      this.ProductType = com.pluralsight.kafka.consumer.model.ProductType.values()[in.readEnum()];
+      this.ProductType = com.example.kafka.model.ProductType.values()[in.readEnum()];
 
-      this.DesignType = com.pluralsight.kafka.consumer.model.DesignType.values()[in.readEnum()];
+      this.DesignType = com.example.kafka.model.DesignType.values()[in.readEnum()];
 
     } else {
       for (int i = 0; i < 3; i++) {
         switch (fieldOrder[i].pos()) {
         case 0:
-          this.Color = com.pluralsight.kafka.consumer.model.Color.values()[in.readEnum()];
+          this.Color = com.example.kafka.model.Color.values()[in.readEnum()];
           break;
 
         case 1:
-          this.ProductType = com.pluralsight.kafka.consumer.model.ProductType.values()[in.readEnum()];
+          this.ProductType = com.example.kafka.model.ProductType.values()[in.readEnum()];
           break;
 
         case 2:
-          this.DesignType = com.pluralsight.kafka.consumer.model.DesignType.values()[in.readEnum()];
+          this.DesignType = com.example.kafka.model.DesignType.values()[in.readEnum()];
           break;
 
         default:

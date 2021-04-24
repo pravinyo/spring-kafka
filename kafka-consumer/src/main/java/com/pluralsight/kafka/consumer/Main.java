@@ -1,6 +1,8 @@
 package com.pluralsight.kafka.consumer;
 
 
+import com.pluralsight.kafka.consumer.model.Product;
+import com.pluralsight.kafka.consumer.model.User;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.kafka.clients.consumer.ConsumerRecord;
 import org.apache.kafka.clients.consumer.ConsumerRecords;
@@ -22,17 +24,19 @@ public class Main {
         Properties props = new Properties();
         props.put("bootstrap.servers", "localhost:9091");
         props.put("group.id", "user-tracking-consumer");
-        props.put("key.deserializer", "org.apache.kafka.common.serialization.StringDeserializer");
-        props.put("value.deserializer", "org.apache.kafka.common.serialization.StringDeserializer");
+        props.put("key.deserializer", "io.confluent.kafka.serializers.KafkaAvroDeserializer");
+        props.put("value.deserializer", "io.confluent.kafka.serializers.KafkaAvroDeserializer");
+        props.put("specific.avro.reader", "true");
+        props.put("schema.registry.url", "http://localhost:8081");
 
-        KafkaConsumer<String, String> consumer = new KafkaConsumer<>(props);
+        KafkaConsumer<User, Product> consumer = new KafkaConsumer<>(props);
 
         consumer.subscribe(Collections.singletonList("user-tracking"));
 
         while (true) {
-            ConsumerRecords<String, String> records = consumer.poll(Duration.ofMillis(100));
+            ConsumerRecords<User, Product> records = consumer.poll(Duration.ofMillis(100));
 
-            for (ConsumerRecord<String, String> record : records) {
+            for (ConsumerRecord<User, Product> record : records) {
                 suggestionEngine.processSuggestions(record.key(), record.value());
             }
         }

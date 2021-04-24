@@ -1,4 +1,4 @@
-package com.example.kafka.model;
+package com.example.kafka.domain;
 
 import com.example.kafka.enums.UserId;
 import lombok.Builder;

@@ -1,6 +1,7 @@
 package com.example.kafka;
 
-import com.example.kafka.model.Event;
+import com.example.kafka.domain.InternalEvent;
+import com.example.kafka.model.*;
 import org.apache.kafka.clients.producer.KafkaProducer;
 import org.apache.kafka.clients.producer.Producer;
 import org.apache.kafka.clients.producer.ProducerRecord;
@@ -10,6 +11,8 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
+import java.time.ZoneId;
+import java.time.temporal.ChronoField;
 import java.util.Properties;
 
 import static java.lang.Thread.sleep;
@@ -23,12 +26,24 @@ public class KafkaApplication implements CommandLineRunner {
 	}
 
 
-	private static String extractKey(Event event) {
-		return event.getUser().getUserId().toString();
+	private static User extractKey(InternalEvent event) {
+		return User.newBuilder()
+				.setUserId(event.getUser().getUserId().toString())
+				.setUsername(event.getUser().getUsername())
+				.setDateOfBirth((int)event.getUser()
+						.getDateOfBirth()
+						.toInstant()
+						.atZone(ZoneId.systemDefault())
+						.getLong(ChronoField.EPOCH_DAY))
+				.build();
 	}
 
-	private static String extractValue(Event event) {
-		return String.format("%s,%s,%s", event.getProduct().getType(), event.getProduct().getColor(), event.getProduct().getDesignType());
+	private static Product extractValue(InternalEvent event) {
+		return Product.newBuilder()
+				.setProductType(ProductType.valueOf(event.getProduct().getType().name()))
+				.setColor(Color.valueOf(event.getProduct().getColor().name()))
+				.setDesignType(DesignType.valueOf(event.getProduct().getDesignType().name()))
+				.build();
 	}
 
 	@Override
@@ -37,20 +52,21 @@ public class KafkaApplication implements CommandLineRunner {
 
 		Properties props = new Properties();
 		props.put("bootstrap.servers", "localhost:9091");
-		props.put("key.serializer", "org.apache.kafka.common.serialization.StringSerializer");
-		props.put("value.serializer", "org.apache.kafka.common.serialization.StringSerializer");
+		props.put("key.serializer", "io.confluent.kafka.serializers.KafkaAvroSerializer");
+		props.put("value.serializer", "io.confluent.kafka.serializers.KafkaAvroSerializer");
+		props.put("schema.registry.url", "http://localhost:8081");
 
-		Producer<String, String> producer = new KafkaProducer<>(props);
+		Producer<User, Product> producer = new KafkaProducer<>(props);
 
 		for(int i = 1; i <= 10; i++) {
 			log.info("Generating event #" + i);
 
-			Event event = eventGenerator.generateEvent();
+			InternalEvent event = eventGenerator.generateEvent();
 
-			String key = extractKey(event);
-			String value = extractValue(event);
+			User key = extractKey(event);
+			Product value = extractValue(event);
 
-			ProducerRecord<String, String> producerRecord = new ProducerRecord<>("user-tracking", key, value);
+			ProducerRecord<User, Product> producerRecord = new ProducerRecord<>("user-tracking", key, value);
 
 			log.info("Producing to Kafka the record: " + key + ":" + value);
 			producer.send(producerRecord);

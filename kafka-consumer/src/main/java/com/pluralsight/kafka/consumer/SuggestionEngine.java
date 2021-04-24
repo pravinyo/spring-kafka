@@ -1,6 +1,8 @@
 package com.pluralsight.kafka.consumer;
 
-import com.pluralsight.kafka.consumer.model.PreferredProduct;
+import com.pluralsight.kafka.consumer.domain.InternalUser;
+import com.pluralsight.kafka.consumer.domain.PreferredProduct;
+import com.pluralsight.kafka.consumer.model.Product;
 import com.pluralsight.kafka.consumer.model.User;
 import com.pluralsight.kafka.consumer.service.UserDB;
 import lombok.extern.slf4j.Slf4j;
@@ -13,28 +15,23 @@ public class SuggestionEngine {
 
     private UserDB userDB = new UserDB();
 
-    public void processSuggestions(String userId, String product) {
-        String[] valueSplit = product.split(",");
-        String productType = valueSplit[0];
-        String productColor = valueSplit[1];
-        String productDesign = valueSplit[2];
-
-        log.info("User with ID: " + userId +
-                " showed interest over " + productType + " " +
-                "of color " + productColor + " and design " + productDesign);
+    public void processSuggestions(User user, Product product) {
+        log.info("InternalUser with ID: " + user.getUserId() +
+                " showed interest over " + product.getProductType() + " " +
+                "of color " + product.getColor() + " and design " + product.getDesignType());
 
         // Retrieve preferences from Database
-        User user = userDB.findByID(userId);
+        InternalUser internalUser = userDB.findByID(user.getUserId().toString());
 
-        // Update user preferences
-        user.getPreferences()
-                .add(new PreferredProduct(productColor, productType, productDesign));
+        // Update internalUser preferences
+        internalUser.getPreferences()
+                .add(new PreferredProduct(product.getColor().toString(), product.getProductType().toString(), product.getDesignType().toString()));
 
         // Generate list of suggestions
-        user.setSuggestions(generateSugestions(user.getPreferences()));
+        internalUser.setSuggestions(generateSugestions(internalUser.getPreferences()));
 
         // Store the suggestions in the database / send them to a kafka topic
-        userDB.save(user);
+        userDB.save(internalUser);
     }
 
     /**

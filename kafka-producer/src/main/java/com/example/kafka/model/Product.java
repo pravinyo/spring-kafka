@@ -94,10 +94,10 @@ public class Product extends org.apache.avro.specific.SpecificRecordBase impleme
     this.DesignType = DesignType;
   }
 
-  public org.apache.avro.specific.SpecificData getSpecificData() { return MODEL$; }
+  public SpecificData getSpecificData() { return MODEL$; }
   public org.apache.avro.Schema getSchema() { return SCHEMA$; }
   // Used by DatumWriter.  Applications should not call.
-  public java.lang.Object get(int field$) {
+  public Object get(int field$) {
     switch (field$) {
     case 0: return Color;
     case 1: return ProductType;
@@ -108,7 +108,7 @@ public class Product extends org.apache.avro.specific.SpecificRecordBase impleme
 
   // Used by DatumReader.  Applications should not call.
   @SuppressWarnings(value="unchecked")
-  public void put(int field$, java.lang.Object value$) {
+  public void put(int field$, Object value$) {
     switch (field$) {
     case 0: Color = (com.example.kafka.model.Color)value$; break;
     case 1: ProductType = (com.example.kafka.model.ProductType)value$; break;
@@ -172,8 +172,8 @@ public class Product extends org.apache.avro.specific.SpecificRecordBase impleme
    * Creates a new Product RecordBuilder.
    * @return A new Product RecordBuilder
    */
-  public static com.example.kafka.model.Product.Builder newBuilder() {
-    return new com.example.kafka.model.Product.Builder();
+  public static Builder newBuilder() {
+    return new Builder();
   }
 
   /**
@@ -181,11 +181,11 @@ public class Product extends org.apache.avro.specific.SpecificRecordBase impleme
    * @param other The existing builder to copy.
    * @return A new Product RecordBuilder
    */
-  public static com.example.kafka.model.Product.Builder newBuilder(com.example.kafka.model.Product.Builder other) {
+  public static Builder newBuilder(Builder other) {
     if (other == null) {
-      return new com.example.kafka.model.Product.Builder();
+      return new Builder();
     } else {
-      return new com.example.kafka.model.Product.Builder(other);
+      return new Builder(other);
     }
   }
 
@@ -194,11 +194,11 @@ public class Product extends org.apache.avro.specific.SpecificRecordBase impleme
    * @param other The existing instance to copy.
    * @return A new Product RecordBuilder
    */
-  public static com.example.kafka.model.Product.Builder newBuilder(com.example.kafka.model.Product other) {
+  public static Builder newBuilder(Product other) {
     if (other == null) {
-      return new com.example.kafka.model.Product.Builder();
+      return new Builder();
     } else {
-      return new com.example.kafka.model.Product.Builder(other);
+      return new Builder(other);
     }
   }
 
@@ -222,7 +222,7 @@ public class Product extends org.apache.avro.specific.SpecificRecordBase impleme
      * Creates a Builder by copying an existing Builder.
      * @param other The existing Builder to copy.
      */
-    private Builder(com.example.kafka.model.Product.Builder other) {
+    private Builder(Builder other) {
       super(other);
       if (isValidValue(fields()[0], other.Color)) {
         this.Color = data().deepCopy(fields()[0].schema(), other.Color);
@@ -242,7 +242,7 @@ public class Product extends org.apache.avro.specific.SpecificRecordBase impleme
      * Creates a Builder by copying an existing Product instance
      * @param other The existing instance to copy.
      */
-    private Builder(com.example.kafka.model.Product other) {
+    private Builder(Product other) {
       super(SCHEMA$);
       if (isValidValue(fields()[0], other.Color)) {
         this.Color = data().deepCopy(fields()[0].schema(), other.Color);
@@ -272,7 +272,7 @@ public class Product extends org.apache.avro.specific.SpecificRecordBase impleme
       * @param value The value of 'Color'.
       * @return This builder.
       */
-    public com.example.kafka.model.Product.Builder setColor(com.example.kafka.model.Color value) {
+    public Builder setColor(com.example.kafka.model.Color value) {
       validate(fields()[0], value);
       this.Color = value;
       fieldSetFlags()[0] = true;
@@ -292,7 +292,7 @@ public class Product extends org.apache.avro.specific.SpecificRecordBase impleme
       * Clears the value of the 'Color' field.
       * @return This builder.
       */
-    public com.example.kafka.model.Product.Builder clearColor() {
+    public Builder clearColor() {
       Color = null;
       fieldSetFlags()[0] = false;
       return this;
@@ -312,7 +312,7 @@ public class Product extends org.apache.avro.specific.SpecificRecordBase impleme
       * @param value The value of 'ProductType'.
       * @return This builder.
       */
-    public com.example.kafka.model.Product.Builder setProductType(com.example.kafka.model.ProductType value) {
+    public Builder setProductType(com.example.kafka.model.ProductType value) {
       validate(fields()[1], value);
       this.ProductType = value;
       fieldSetFlags()[1] = true;
@@ -332,7 +332,7 @@ public class Product extends org.apache.avro.specific.SpecificRecordBase impleme
       * Clears the value of the 'ProductType' field.
       * @return This builder.
       */
-    public com.example.kafka.model.Product.Builder clearProductType() {
+    public Builder clearProductType() {
       ProductType = null;
       fieldSetFlags()[1] = false;
       return this;
@@ -352,7 +352,7 @@ public class Product extends org.apache.avro.specific.SpecificRecordBase impleme
       * @param value The value of 'DesignType'.
       * @return This builder.
       */
-    public com.example.kafka.model.Product.Builder setDesignType(com.example.kafka.model.DesignType value) {
+    public Builder setDesignType(com.example.kafka.model.DesignType value) {
       validate(fields()[2], value);
       this.DesignType = value;
       fieldSetFlags()[2] = true;
@@ -372,7 +372,7 @@ public class Product extends org.apache.avro.specific.SpecificRecordBase impleme
       * Clears the value of the 'DesignType' field.
       * @return This builder.
       */
-    public com.example.kafka.model.Product.Builder clearDesignType() {
+    public Builder clearDesignType() {
       DesignType = null;
       fieldSetFlags()[2] = false;
       return this;
@@ -389,7 +389,7 @@ public class Product extends org.apache.avro.specific.SpecificRecordBase impleme
         return record;
       } catch (org.apache.avro.AvroMissingFieldException e) {
         throw e;
-      } catch (java.lang.Exception e) {
+      } catch (Exception e) {
         throw new org.apache.avro.AvroRuntimeException(e);
       }
     }

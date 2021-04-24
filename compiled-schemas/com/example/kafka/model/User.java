@@ -71,8 +71,8 @@ public class User extends org.apache.avro.specific.SpecificRecordBase implements
     return DECODER.decode(b);
   }
 
-   private CharSequence userId;
-   private CharSequence username;
+   private java.lang.CharSequence userId;
+   private java.lang.CharSequence username;
    private int dateOfBirth;
 
   /**
@@ -88,16 +88,16 @@ public class User extends org.apache.avro.specific.SpecificRecordBase implements
    * @param username The new value for username
    * @param dateOfBirth The new value for dateOfBirth
    */
-  public User(CharSequence userId, CharSequence username, Integer dateOfBirth) {
+  public User(java.lang.CharSequence userId, java.lang.CharSequence username, java.lang.Integer dateOfBirth) {
     this.userId = userId;
     this.username = username;
     this.dateOfBirth = dateOfBirth;
   }
 
-  public SpecificData getSpecificData() { return MODEL$; }
+  public org.apache.avro.specific.SpecificData getSpecificData() { return MODEL$; }
   public org.apache.avro.Schema getSchema() { return SCHEMA$; }
   // Used by DatumWriter.  Applications should not call.
-  public Object get(int field$) {
+  public java.lang.Object get(int field$) {
     switch (field$) {
     case 0: return userId;
     case 1: return username;
@@ -108,11 +108,11 @@ public class User extends org.apache.avro.specific.SpecificRecordBase implements
 
   // Used by DatumReader.  Applications should not call.
   @SuppressWarnings(value="unchecked")
-  public void put(int field$, Object value$) {
+  public void put(int field$, java.lang.Object value$) {
     switch (field$) {
-    case 0: userId = (CharSequence)value$; break;
-    case 1: username = (CharSequence)value$; break;
-    case 2: dateOfBirth = (Integer)value$; break;
+    case 0: userId = (java.lang.CharSequence)value$; break;
+    case 1: username = (java.lang.CharSequence)value$; break;
+    case 2: dateOfBirth = (java.lang.Integer)value$; break;
     default: throw new IndexOutOfBoundsException("Invalid index: " + field$);
     }
   }
@@ -121,7 +121,7 @@ public class User extends org.apache.avro.specific.SpecificRecordBase implements
    * Gets the value of the 'userId' field.
    * @return The value of the 'userId' field.
    */
-  public CharSequence getUserId() {
+  public java.lang.CharSequence getUserId() {
     return userId;
   }
 
@@ -130,7 +130,7 @@ public class User extends org.apache.avro.specific.SpecificRecordBase implements
    * Sets the value of the 'userId' field.
    * @param value the value to set.
    */
-  public void setUserId(CharSequence value) {
+  public void setUserId(java.lang.CharSequence value) {
     this.userId = value;
   }
 
@@ -138,7 +138,7 @@ public class User extends org.apache.avro.specific.SpecificRecordBase implements
    * Gets the value of the 'username' field.
    * @return The value of the 'username' field.
    */
-  public CharSequence getUsername() {
+  public java.lang.CharSequence getUsername() {
     return username;
   }
 
@@ -147,7 +147,7 @@ public class User extends org.apache.avro.specific.SpecificRecordBase implements
    * Sets the value of the 'username' field.
    * @param value the value to set.
    */
-  public void setUsername(CharSequence value) {
+  public void setUsername(java.lang.CharSequence value) {
     this.username = value;
   }
 
@@ -172,8 +172,8 @@ public class User extends org.apache.avro.specific.SpecificRecordBase implements
    * Creates a new User RecordBuilder.
    * @return A new User RecordBuilder
    */
-  public static Builder newBuilder() {
-    return new Builder();
+  public static com.example.kafka.model.User.Builder newBuilder() {
+    return new com.example.kafka.model.User.Builder();
   }
 
   /**
@@ -181,11 +181,11 @@ public class User extends org.apache.avro.specific.SpecificRecordBase implements
    * @param other The existing builder to copy.
    * @return A new User RecordBuilder
    */
-  public static Builder newBuilder(Builder other) {
+  public static com.example.kafka.model.User.Builder newBuilder(com.example.kafka.model.User.Builder other) {
     if (other == null) {
-      return new Builder();
+      return new com.example.kafka.model.User.Builder();
     } else {
-      return new Builder(other);
+      return new com.example.kafka.model.User.Builder(other);
     }
   }
 
@@ -194,11 +194,11 @@ public class User extends org.apache.avro.specific.SpecificRecordBase implements
    * @param other The existing instance to copy.
    * @return A new User RecordBuilder
    */
-  public static Builder newBuilder(User other) {
+  public static com.example.kafka.model.User.Builder newBuilder(com.example.kafka.model.User other) {
     if (other == null) {
-      return new Builder();
+      return new com.example.kafka.model.User.Builder();
     } else {
-      return new Builder(other);
+      return new com.example.kafka.model.User.Builder(other);
     }
   }
 
@@ -209,8 +209,8 @@ public class User extends org.apache.avro.specific.SpecificRecordBase implements
   public static class Builder extends org.apache.avro.specific.SpecificRecordBuilderBase<User>
     implements org.apache.avro.data.RecordBuilder<User> {
 
-    private CharSequence userId;
-    private CharSequence username;
+    private java.lang.CharSequence userId;
+    private java.lang.CharSequence username;
     private int dateOfBirth;
 
     /** Creates a new Builder */
@@ -222,7 +222,7 @@ public class User extends org.apache.avro.specific.SpecificRecordBase implements
      * Creates a Builder by copying an existing Builder.
      * @param other The existing Builder to copy.
      */
-    private Builder(Builder other) {
+    private Builder(com.example.kafka.model.User.Builder other) {
       super(other);
       if (isValidValue(fields()[0], other.userId)) {
         this.userId = data().deepCopy(fields()[0].schema(), other.userId);
@@ -242,7 +242,7 @@ public class User extends org.apache.avro.specific.SpecificRecordBase implements
      * Creates a Builder by copying an existing User instance
      * @param other The existing instance to copy.
      */
-    private Builder(User other) {
+    private Builder(com.example.kafka.model.User other) {
       super(SCHEMA$);
       if (isValidValue(fields()[0], other.userId)) {
         this.userId = data().deepCopy(fields()[0].schema(), other.userId);
@@ -262,7 +262,7 @@ public class User extends org.apache.avro.specific.SpecificRecordBase implements
       * Gets the value of the 'userId' field.
       * @return The value.
       */
-    public CharSequence getUserId() {
+    public java.lang.CharSequence getUserId() {
       return userId;
     }
 
@@ -272,7 +272,7 @@ public class User extends org.apache.avro.specific.SpecificRecordBase implements
       * @param value The value of 'userId'.
       * @return This builder.
       */
-    public Builder setUserId(CharSequence value) {
+    public com.example.kafka.model.User.Builder setUserId(java.lang.CharSequence value) {
       validate(fields()[0], value);
       this.userId = value;
       fieldSetFlags()[0] = true;
@@ -292,7 +292,7 @@ public class User extends org.apache.avro.specific.SpecificRecordBase implements
       * Clears the value of the 'userId' field.
       * @return This builder.
       */
-    public Builder clearUserId() {
+    public com.example.kafka.model.User.Builder clearUserId() {
       userId = null;
       fieldSetFlags()[0] = false;
       return this;
@@ -302,7 +302,7 @@ public class User extends org.apache.avro.specific.SpecificRecordBase implements
       * Gets the value of the 'username' field.
       * @return The value.
       */
-    public CharSequence getUsername() {
+    public java.lang.CharSequence getUsername() {
       return username;
     }
 
@@ -312,7 +312,7 @@ public class User extends org.apache.avro.specific.SpecificRecordBase implements
       * @param value The value of 'username'.
       * @return This builder.
       */
-    public Builder setUsername(CharSequence value) {
+    public com.example.kafka.model.User.Builder setUsername(java.lang.CharSequence value) {
       validate(fields()[1], value);
       this.username = value;
       fieldSetFlags()[1] = true;
@@ -332,7 +332,7 @@ public class User extends org.apache.avro.specific.SpecificRecordBase implements
       * Clears the value of the 'username' field.
       * @return This builder.
       */
-    public Builder clearUsername() {
+    public com.example.kafka.model.User.Builder clearUsername() {
       username = null;
       fieldSetFlags()[1] = false;
       return this;
@@ -352,7 +352,7 @@ public class User extends org.apache.avro.specific.SpecificRecordBase implements
       * @param value The value of 'dateOfBirth'.
       * @return This builder.
       */
-    public Builder setDateOfBirth(int value) {
+    public com.example.kafka.model.User.Builder setDateOfBirth(int value) {
       validate(fields()[2], value);
       this.dateOfBirth = value;
       fieldSetFlags()[2] = true;
@@ -372,7 +372,7 @@ public class User extends org.apache.avro.specific.SpecificRecordBase implements
       * Clears the value of the 'dateOfBirth' field.
       * @return This builder.
       */
-    public Builder clearDateOfBirth() {
+    public com.example.kafka.model.User.Builder clearDateOfBirth() {
       fieldSetFlags()[2] = false;
       return this;
     }
@@ -382,13 +382,13 @@ public class User extends org.apache.avro.specific.SpecificRecordBase implements
     public User build() {
       try {
         User record = new User();
-        record.userId = fieldSetFlags()[0] ? this.userId : (CharSequence) defaultValue(fields()[0]);
-        record.username = fieldSetFlags()[1] ? this.username : (CharSequence) defaultValue(fields()[1]);
-        record.dateOfBirth = fieldSetFlags()[2] ? this.dateOfBirth : (Integer) defaultValue(fields()[2]);
+        record.userId = fieldSetFlags()[0] ? this.userId : (java.lang.CharSequence) defaultValue(fields()[0]);
+        record.username = fieldSetFlags()[1] ? this.username : (java.lang.CharSequence) defaultValue(fields()[1]);
+        record.dateOfBirth = fieldSetFlags()[2] ? this.dateOfBirth : (java.lang.Integer) defaultValue(fields()[2]);
         return record;
       } catch (org.apache.avro.AvroMissingFieldException e) {
         throw e;
-      } catch (Exception e) {
+      } catch (java.lang.Exception e) {
         throw new org.apache.avro.AvroRuntimeException(e);
       }
     }
