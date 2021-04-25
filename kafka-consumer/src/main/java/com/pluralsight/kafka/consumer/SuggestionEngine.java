@@ -16,9 +16,13 @@ public class SuggestionEngine {
     private UserDB userDB = new UserDB();
 
     public void processSuggestions(User user, Product product) {
-        log.info("InternalUser with ID: " + user.getUserId() +
-                " showed interest over " + product.getProductType() + " " +
-                "of color " + product.getColor() + " and design " + product.getDesignType());
+        log.info(String.format(
+                "Thread: %s => InternalUser with ID: %s showed interest over %s of color %s and design %s",
+                Thread.currentThread().getName(),
+                user.getUserId(),
+                product.getProductType(),
+                product.getColor(),
+                product.getDesignType()));
 
         // Retrieve preferences from Database
         InternalUser internalUser = userDB.findByID(user.getUserId().toString());
