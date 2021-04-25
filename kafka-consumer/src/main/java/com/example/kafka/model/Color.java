@@ -3,7 +3,7 @@
  *
  * DO NOT EDIT DIRECTLY
  */
-package com.pluralsight.kafka.consumer.model;
+package com.example.kafka.model;
 @org.apache.avro.specific.AvroGenerated
 public enum Color implements org.apache.avro.generic.GenericEnumSymbol<Color> {
   GREEN, BLUE, PURPLE  ;

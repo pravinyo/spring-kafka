@@ -51,7 +51,7 @@ public class KafkaApplication implements CommandLineRunner {
 		EventGenerator eventGenerator = new EventGenerator();
 
 		Properties props = new Properties();
-		props.put("bootstrap.servers", "localhost:9091");
+		props.put("bootstrap.servers", "localhost:9092");
 		props.put("key.serializer", "io.confluent.kafka.serializers.KafkaAvroSerializer");
 		props.put("value.serializer", "io.confluent.kafka.serializers.KafkaAvroSerializer");
 		props.put("schema.registry.url", "http://localhost:8081");

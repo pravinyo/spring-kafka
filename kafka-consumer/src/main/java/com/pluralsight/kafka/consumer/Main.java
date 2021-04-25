@@ -1,8 +1,8 @@
 package com.pluralsight.kafka.consumer;
 
 
-import com.pluralsight.kafka.consumer.model.Product;
-import com.pluralsight.kafka.consumer.model.User;
+import com.example.kafka.model.Product;
+import com.example.kafka.model.User;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.kafka.clients.consumer.ConsumerRecord;
 import org.apache.kafka.clients.consumer.ConsumerRecords;
@@ -12,8 +12,6 @@ import java.time.Duration;
 import java.util.Collections;
 import java.util.Properties;
 
-import static java.util.Arrays.asList;
-
 @Slf4j
 public class Main {
 
@@ -22,7 +20,7 @@ public class Main {
         SuggestionEngine suggestionEngine = new SuggestionEngine();
 
         Properties props = new Properties();
-        props.put("bootstrap.servers", "localhost:9091");
+        props.put("bootstrap.servers", "localhost:9092");
         props.put("group.id", "user-tracking-consumer");
         props.put("key.deserializer", "io.confluent.kafka.serializers.KafkaAvroDeserializer");
         props.put("value.deserializer", "io.confluent.kafka.serializers.KafkaAvroDeserializer");
